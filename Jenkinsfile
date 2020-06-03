@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Push Container') {
             steps {
-                withCredentials([dockerpw(credentialsId: 'dockerpw', variable: 'DOCKERPW')]){
+                withCredentials([string(credentialsId: 'dockerpw', variable: 'DOCKERPW')]){
                     sh 'bash ./pushcontainer.sh $DOCKERPW'
                 }
             }
