@@ -18,8 +18,9 @@ pipeline {
         }
         stage('Push Container') {
             steps {
-                echo 'Testing..'
-                // withCredentials([dockerpw(credentialsId: 'dockerpw', variable: 'DOCKERPW')])
+                withCredentials([dockerpw(credentialsId: 'dockerpw', variable: 'DOCKERPW')]){
+                    sh 'bash ./pushcontainer.sh $DOCKERPW'
+                }
             }
         }
         stage('Deploy') {
