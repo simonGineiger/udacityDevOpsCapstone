@@ -13,12 +13,13 @@ pipeline {
         }
         stage('Build Container') {
             steps {
-                echo 'Building..'
+                sh 'bash docker build --tag=XCLapi .'
             }
         }
         stage('Push Container') {
             steps {
                 echo 'Testing..'
+                // withCredentials([usernameColonPassword(credentialsId: 'mylogin', variable: 'USERPASS')])
             }
         }
         stage('Deploy') {
