@@ -1,0 +1,14 @@
+[
+        {
+            "ParameterKey": "EnvironmentName",
+            "ParameterValue": "UdacityDevOpsCapstoneK8S"
+        },
+        {
+            "ParameterKey": "Subnet1",
+            "ParameterValue": "subnet-8034cccc"
+        },
+        {
+            "ParameterKey": "Subnet2",
+            "ParameterValue": "subnet-b32dd8cf"
+        }
+]

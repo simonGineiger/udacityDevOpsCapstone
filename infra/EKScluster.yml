@@ -1,0 +1,76 @@
+Description: >
+  Simon Gineiger
+  Udacity DevOps Nanodegree Capstone Project
+  EKS Cluster Creation
+
+Parameters:
+
+  EnvironmentName:
+    Description: The environment name that will be prefixed to resource names
+    Type: String
+
+  Subnet1:
+    Description: First Subnet to deploy cluster to
+    Type: String
+    Default: "subnet-8034cccc" # eu-central-1c
+
+  Subnet2:
+    Description: Second Subnet to deploy cluster to
+    Type: String
+    Default: "subnet-b32dd8cf" # eu-central-1b
+
+Resources:
+
+  EKScluster:
+    Type: AWS::EKS::Cluster
+    Properties: 
+      # EncryptionConfig: 
+      #   - EncryptionConfig
+      Name: !Sub "${EnvironmentName}-Cluster"
+      ResourcesVpcConfig: 
+        SecurityGroupIds: 
+        - "sg-049513646573e6f28"
+        SubnetIds: 
+          - !Sub "${Subnet1}"
+          - !Sub "${Subnet2}"
+      RoleArn: "arn:aws:iam::370570694189:role/EKS--clusterRole"
+      # Version: String
+
+
+  # Type: AWS::EKS::Nodegroup
+  # Properties: 
+  #   # AmiType: String
+  #   ClusterName: !Sub "${EnvironmentName}-Cluster"
+  #   DiskSize: Double
+  #   ForceUpdateEnabled: Boolean
+  #   InstanceTypes: 
+  #     - String
+  #   Labels: Json
+  #   NodegroupName: String
+  #   NodeRole: String
+  #   ReleaseVersion: String
+  #   RemoteAccess: 
+  #     RemoteAccess
+  #   ScalingConfig: 
+  #     ScalingConfig
+  #   Subnets: 
+  #     - String
+  #   Tags: Json
+  #   Version: String
+
+
+
+
+
+# Outputs: 
+
+#   LoadBalancerDNS: 
+#     Description: Load Balancer DNS Name
+#     Value: !Sub http://${LoadBalancer.DNSName}
+#     Export:
+#       Name: !Sub ${EnvironmentName}-LBDNSname
+
+#   ServerConfig: 
+#     Description: Servers/Autoscaling Settings
+#     Value: !Sub Scaling from ${MinServers} to ${MaxServers} of ${ServerInstanceType} ${ServerAMI} with ${ServerBlockSize} GB EBS Storage attached
+  
