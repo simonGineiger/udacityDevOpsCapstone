@@ -23,11 +23,16 @@ pipeline {
                 }
             }
         }
-        stage('Deploy') {
+        stage('Deploy Containers') {
             steps {
                 withAWS(credentials: '(udacityIaC) programmaticAccessAdmin', region: 'eu-central-1'){
                     sh 'bash ./testawscreds.sh'
                  }
+            }
+        }
+        stage('Cleanup Docker Image') {
+            steps {
+                sh 'bash ./cleanupdocker.sh'
             }
         }
     }
