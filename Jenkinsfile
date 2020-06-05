@@ -16,21 +16,21 @@ pipeline {
                 sh 'bash ./buildcontainer.sh'
             }
         }
-        stage('Push Container') {
+        stage('Push Container Image') {
             steps {
                 withCredentials([string(credentialsId: 'dockerpw', variable: 'DOCKERPW')]){
                     sh 'bash ./pushcontainer.sh $DOCKERPW'
                 }
             }
         }
-        stage('Deploy Containers') {
+        stage('Deploy Containers to EKS') {
             steps {
                 withAWS(credentials: '(udacityIaC) programmaticAccessAdmin', region: 'eu-central-1'){
                     sh 'bash ./deploycontainers.sh'
                  }
             }
         }
-        stage('Cleanup Docker Image') {
+        stage('Clean up local Container Image') {
             steps {
                 sh 'bash ./cleanupdocker.sh'
             }
