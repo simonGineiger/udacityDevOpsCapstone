@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: xclapi
-        image: simongineiger/udacity-devops-capstone:latest
-#        imagePullPolicy: Always
+        image: simongineiger/udacity-devops-capstone
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080

@@ -30,10 +30,10 @@ pipeline {
                  }
             }
         }
-        stage('Clean up local Container Image') {
-            steps {
-                sh 'bash ./cleanupdocker.sh'
-            }
+        // stage('Clean up local Container Image') {
+        //     steps {
+        //         sh 'bash ./cleanupdocker.sh'
+        //     }
         }
     }
 
