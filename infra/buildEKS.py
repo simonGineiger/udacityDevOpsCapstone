@@ -28,7 +28,6 @@ cluster_creation_response = cloudformation.create_stack(
 
 waiter.wait(
     StackName=eks_cluster_name,
-    # NextToken='string',
     WaiterConfig={
         'Delay': 20,
         "MaxAttemps": 100
