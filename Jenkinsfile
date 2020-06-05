@@ -25,7 +25,7 @@ pipeline {
         }
         stage('Deploy') {
             steps {
-                echo 'Deploying..'
+                sh 'bash ./deploycontainers.sh'
             }
         }
     }
