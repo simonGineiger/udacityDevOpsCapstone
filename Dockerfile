@@ -5,7 +5,6 @@ WORKDIR /app
 
 ## Step 2:
 # Copy source code to working directory
-
 COPY . *.py /app/
 COPY . *.txt /app/
 
@@ -20,6 +19,6 @@ RUN pip install --upgrade pip &&\
 EXPOSE 80
 
 ## Step 5
-# Run app.py at container launch
+# Run api.py at container launch
 CMD ["python", "api.py"]
 
