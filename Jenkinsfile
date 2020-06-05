@@ -34,7 +34,7 @@ pipeline {
         //     steps {
         //         sh 'bash ./cleanupdocker.sh'
         //     }
-        }
+        //}
     }
 
 }
