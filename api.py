@@ -20,7 +20,7 @@ def get_latest_statistics():
 
 @app.route("/XCL/getLatest", methods=["GET", "OPTIONS"])
 def get_latest_ohlcv_data():
-    timeframe = int(request.args.get("timeframe", "180"))  # default timeframe 3 hours
+    timeframe = int(request.args.get("timeframe", "120"))  # default timeframe 2 hours
     pairings = request.args.get("pairings", pairings_default()).strip("][").split(", ")
     result = fromPostgres.get_latest(pairings, timeframe_in_minutes=timeframe)
     return result
