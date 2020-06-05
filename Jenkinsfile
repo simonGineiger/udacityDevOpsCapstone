@@ -26,7 +26,7 @@ pipeline {
         stage('Deploy Containers') {
             steps {
                 withAWS(credentials: '(udacityIaC) programmaticAccessAdmin', region: 'eu-central-1'){
-                    sh 'bash ./testawscreds.sh'
+                    sh 'bash ./deploycontainers.sh'
                  }
             }
         }
