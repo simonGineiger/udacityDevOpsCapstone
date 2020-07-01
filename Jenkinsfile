@@ -23,13 +23,6 @@ pipeline {
                 }
             }
         }
-        stage('Deploy Containers to EKS') {
-            steps {
-                withAWS(credentials: '(udacityIaC) programmaticAccessAdmin', region: 'eu-central-1'){
-                    sh 'bash scripts/deploycontainers.sh'
-                 }
-            }
-        }
     }
 
 }
