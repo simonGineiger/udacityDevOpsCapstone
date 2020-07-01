@@ -36,7 +36,7 @@ def get_damaged_ohlcv_data():
 
 @app.before_request
 def before_request_func():
-    print("before_request is running!")
+    print("before_request is running")
 
 
 @app.after_request
